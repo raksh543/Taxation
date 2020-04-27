@@ -42,7 +42,14 @@ footer .social>li>a {
   display: inline-block;
   font-size: 16px;
 }
-
+footer a{
+  color: #a1a1a1;
+  font-weight: 400;
+}
+footer a:hover{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
 footer .social>li>a:hover {
   background-color: rgb(83, 209, 58);
   color: rgb(255, 255, 255);
