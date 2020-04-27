@@ -54,7 +54,17 @@ footer .social>li>a:hover {
   background-color: rgb(83, 209, 58);
   color: rgb(255, 255, 255);
 }
-
+footer h3{
+  margin-bottom: 30px;
+}
+footer h3:after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background: #80b84d;
+  margin-top: 12px;
+}
 @media(max-width: 767px){
 .border-right {
     border-right: none!important;
