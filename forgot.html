@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>forgot</title>
+		<link href="https://fonts.googleapis.com/css?family=play" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <style>
+ 	body{
+			font-family: Tahoma,Geneva,sans-serif;
+			color: #fff;
+			background: url(img/bg.jpeg);
+			background-size: cover;
+		}
+	
+ 	form{
+			width:240px;
+			text-align: center;
+		}
+		.forgot{
+			 	background: rgba(0,0,0,0.5);
+			 	padding: 40px;
+			 	width:250px;
+			 	height: 400px;
+			 	margin-top: 90px;
+			 	margin-left: 180px;
+			 	margin:0 auto;
+		}
+		input{
+			width: 240px;
+			text-align: center;
+			background: transparent;
+			border: none;
+			border-bottom: 1px solid #fff;
+			font-family: 'Play',sans-serif;
+			font-size: 16px;
+			font-weight: 200px;
+			padding: 10px 0;
+			transition: border 0.5s;
+			outline: #fff;
+			color:#fff;
+		}
+		input[type=button]
+			{
+				border: none;
+				width: 190px;
+				background: white;
+				color: #000;
+				font-size: 16px;
+				line-height: 25px;
+				padding: 10px 0;
+				border-radius: 15px;
+				cursor: pointer;
+			}
+		input[type=button]:hover{
+			color: #fff;
+			background-color: black;
+		}
+		h2{
+			color:#000;
+		}
+		::placeholder{
+		color: aliceblue;
+		opacity: 0.8;
+			}
+			a{
+				text-decoration: none;
+				color: yellow;
+			}
+			a:hover{
+ 			color:orange;
+ 		}
+
+ </style>
+</head>
+<body>
+	<center>
+		<div class="forgot">		
+			<form><br><br>
+ 	<h2 align="center" style="color: #fff">Forgot Password</h2>
+<input type="password" name="opass" placeholder="Old Password"><br><br>
+	<input type="email" placeholder="New Password" required="required"><br><br>
+	<input type="password" name="cpass" placeholder="Confirm Password"><br><br><br><br>
+ 	<input type="button" name="" value="Sign up" onclick="myfunction()"><br>	
+ 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="login.html">Back to Home</a>
+ 	</form>
+</div>
+ 	</center>
+</body>
+</html>
