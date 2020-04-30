@@ -221,7 +221,7 @@ figure{
 }
 #home {
 	background: url(../img/1.jpg) no-repeat center center fixed;
-	display: table;
+	display: none;
 	height: 100%;
 	position: relative;
 	width: 100%;
@@ -398,6 +398,9 @@ div.desc1 {
 }
 /***************************************************media query************************/
 @media (max-width: 772px){
+  #home{
+    display: none;
+  }
 
 	.display-4 {
 		font-size: 30px;
@@ -549,13 +552,12 @@ margin-left: 40%;
 	padding: 10%;
 	margin-left: 10%;
 }
-    .button3 {
-      margin-left: 15%;
-    }
+  .button3 {
+    margin-left: 15%;
+  }
     .container {
       text-align: center;
     }
-
     }
 	
 
