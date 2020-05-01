@@ -1,87 +1,11 @@
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
-  	<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
-
-/* Button used to open the chat form - fixed at the bottom of the page */
-.open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-}
-
-/* The popup chat - hidden by default */
-.chat-popup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-}
-
-/* Add styles to the form container */
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-}
-
-/* Full-width textarea */
-.form-container textarea {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: red;
-  resize: none;
-  min-height: 200px;
-}
-
-/* When the textarea gets focus, do something */
-.form-container textarea:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Set a style for the submit/send button */
-.form-container .btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
-</style>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Taxation</title>
     <link rel="stylesheet" href="css/body.css" type="text/css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -362,12 +286,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
    </div>
 </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <div id="home">
 <div class="landing-text">
 
@@ -389,49 +307,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
       
 
 <!--********************************************************************************-->
-<div class="container-fluid padding">
-      <div class="row padding">
-         <div class="col-lg-6">
-            <div class="center-box">
-            <div id="upperleftt">
-            <h1 style="color: red;" text-align="center">How can I help you?</h1>
-            <div class="container">
-               <form action=" " method="post">
-              <P style= "color: green;">Name: <input type="text" name=""></P>
-              <p style= "color: green;">Email: <input type="emai" name=""></p>
-              <p style= "color: green;">Enter You message below</p>
-<textarea id="subject" name="subject" placeholder="Write your message here" cols="30" rows="10"></textarea>
-
-         <br>
-<br>
-
-
-
-<button class="button button3" type="submit">Send</button>
-</form>
-</div>
-</div>
-</div>
-         </div>
-
-
-         <div class="col-lg-6">
-         <h1 style="color: red;">Find us on Google map</h1>
-         <br>
-         <br>
-         <br>
-         
-         <div id="map">
-         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.114758864624!2d77.37429671508241!3d28.626322482420203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5582350e3a1%3A0x7e7a89455156ef5a!2sNirala%20World!5e0!3m2!1sen!2sin!4v1588261111961!5m2!1sen!2sin" width="80%" height="350px" frameborder="0" style="border:3px solid black;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-      </div> 
-         </div>
-   <br>
-   <br>
-</div>
-</div>
-			
 </main>
-<button class="open-button" onclick="openForm()">Chat</button>
+<button class="open-button btn btn-primary rounded-circle" onclick="openForm()"><i class="far fa-comment-dots"></i></button>
 
 <div class="chat-popup" id="myForm">
   <form action="/action_page.php" class="form-container">
@@ -445,15 +322,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   </form>
 </div>
 
-<script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
 
 
  <footer class="footer mt-auto">
@@ -516,6 +385,7 @@ function closeForm() {
 
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/popper.js"></script>
+<script src="js/chat.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
