@@ -1,10 +1,10 @@
-* { margin: 0; padding: 0; box-sizing: border-box; 
+/* * { margin: 0; padding: 0; box-sizing: border-box; 
 } 
 html,body {
   height: 100%;
   width: 100%;
   font-family: 'Poppins',sans-serif;
-}
+} */
 
 #upper1 {
 	border: 1px solid;
@@ -219,14 +219,14 @@ figure{
 	height: 60%;
 	margin: 0!important;
 }
-#home {
+/* #home {
 	background: url(../img/1.jpg) no-repeat center center fixed;
 	display: none;
 	height: 100%;
 	position: relative;
 	width: 100%;
 	background-size: cover;
-}
+} */
 .button4:hover {
 	background-color: red;
 	color: white;
@@ -467,8 +467,7 @@ div.desc1 {
   font-size: 10px;
 }
 #video {
-	margin-left: 15%;
-	width: 100%;
+  margin-left: 20%;
 }
 p {
 	font-size: 20px;
