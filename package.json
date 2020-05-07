@@ -1,0 +1,36 @@
+{
+  "name": "taxation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iniesta-webtech-solution/Taxation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iniesta-webtech-solution/Taxation/issues"
+  },
+  "homepage": "https://github.com/iniesta-webtech-solution/Taxation#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.1",
+    "flash": "^1.1.0",
+    "hbs": "^4.1.1",
+    "mongoose": "^5.9.12",
+    "nodemon": "^2.0.3",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "validator": "^13.0.0"
+  }
+}

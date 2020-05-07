@@ -12,58 +12,10 @@
   </head>
   <body class="d-flex flex-column h-100">
 
-    <header>
-  <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand ml-5" href="#">
-        <img src="https://lh3.googleusercontent.com/08icL7eX2fjXoP3_SsDEYGNpvMdjasMcBdE033glDXSnjTHRFEIRjm25Da68QQQjRb8" width="30px" height="30px">
-        Taxation</a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav m-auto align-items-center">
-        <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#aboutus">About Us</a>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link" href="#blogs">Blogs </a>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link" href="#gallery">Gallery </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#tax">Tax</a>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link" href="#loans">Loans </a>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link" href="#partner">Partner </a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="#contactus">Contact Us</a>
-        </li>
-    </ul>
-    </div>
-    <div class="nav text-sm-center">
-        <li class="nav-item">
-            <button class="btn btn-outline-primary" onclick="location.href='login.html';">Login</button>
-        </li>
-        <li class="nav-item ml-1">
-            <button class="btn btn-primary" onclick="location.href='signup.html';">Sign Up</button>
-        </li>
-    </div>
-</nav>
-    </header>
+{{>header}}
 
 <!-- Begin page content -->
 <main role="main">
-
-
 
 	<div class="container-fluid padding">
       <div class="row welcome text-center">
@@ -314,62 +266,7 @@
 
 
 
- <footer class="footer mt-auto">
-   
-   	<div id="fixed">
-								<h2 style="text-align: center;">Download the App   <a href="#"> <img src="img/p.png" height="60px" width="250px"></a></h2>
-							</div>
-							<div>
-      <div class="container pt-4">
-         <div class="row pb-3 mt-2">
-            <div class="col-lg-4 col-md-6">
-               <div class="border-right">
-                  <h3 class="text-white">Contact</h3>
-                  <ul class="location">
-                        <li><i class="fa fa-map-marker"></i>&nbsp; <a href="https://www.google.com/maps/dir/25.9740253,82.4808599/Nirala+World,+H-61,1st+Floor,+behind+Bikanerwala,+Sector+63,+Noida,+Uttar+Pradesh+201301/@27.0875711,78.7763507,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x390ce5582350e3a1:0x7e7a89455156ef5a!2m2!1d77.3764854!2d28.6263225">
-                           Office No. 3, H-61, 3rd Floor, Sector-63, Nirala World, Noida, Uttar Pradesh, 201301</a></li>
-                        <li><i class="fa fa-mobile"></i>&nbsp; <a href="tel:8745344324">Mobile No.</li>
-                        <li><i class="fa fa-envelope"></i>&nbsp; <a href="mailto:info@.com" target="_blank" >Mail Id </a></li>
-                  </ul>
-                  <div>
-                     <ul class="nav social mb-2">
-                        <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="https://www.instagram.com//" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube"></i></a></li>
-                        <li><a href="https://www.linkedin.com/company/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-               <div class="border-right">
-                  <h3 class="text-white">Quick Links</h3>
-                  <ul>
-                     <li><a href="https://www..com/about.php" target="_blank">Home</a></li>
-                     <li><a href="https://blog..com/" target="_blank">About Us</a></li>
-                     <li><a href="https://www..com/expert-terms-service.php" target="_blank">Blogs</a></li>
-                     <li><a href="https://www..com/expert-privacy-policy.php" target="_blank">Gallery </a></li>
-                     <li><a href="https://www..com" target="_blank">Partner </a></li>
-                     <li><a href="https://www..com/contact.php" target="_blank">Contact Us </a></li>
-                  </ul>
-               </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-               <div class="form-group">
-                  <h3 class="text-white">Sign Up For a Newsletter</h3>
-                  <p class="text-secondary font-weight-bold">Never miss out the latest updates.</p>
-                   <form name="insertemail"  class="" style="position:relative;">
-                     <input type="email" name="email"  value="" placeholder="Insert email here" class="form-control">
-                     <button type="submit" class="btn btn-info mt-2">Subscribe</button>  		   
-                  </form>
-               </div>
-            </div>
-         </div>
-       </div>
-   </div>
-  <p class="text-muted text-center pt-2">&copy; Copyright 2020 All Rights Reserved</p>
-</footer>
+{{>footer}}
 
 
 <script src="js/jquery-3.4.1.js"></script>

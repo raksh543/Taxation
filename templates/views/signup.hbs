@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Sign Up</title>
+	<!-- <link href="css/style2.css" rel="stylesheet" type="text/css"/> -->
+	<link href="https://fonts.googleapis.com/css?family=play" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+		body {
+			font-family: Tahoma, Geneva, sans-serif;
+			color: #fff;
+			background: url(img/bg3.jpg);
+			background-size: cover;
+		}
+
+		.signup {
+			background: rgba(0, 0, 0, 0.5);
+			padding: 40px;
+			width: 250px;
+			height: 430px;
+			margin-top: 90px;
+			margin-left: 180px;
+			margin: 0 auto;
+		}
+
+		form {
+			width: 240px;
+			text-align: center;
+		}
+
+		input {
+			width: 240px;
+			text-align: center;
+			background: transparent;
+			border: none;
+			border-bottom: 1px solid #fff;
+			font-family: 'Play', sans-serif;
+			font-size: 16px;
+			font-weight: 200px;
+			padding: 10px 0;
+			transition: border 0.5s;
+			outline: #fff;
+			color: #fff;
+		}
+
+		input[type=button] {
+			border: none;
+			width: 190px;
+			background: white;
+			color: #000;
+			font-size: 16px;
+			line-height: 25px;
+			padding: 10px 0;
+			border-radius: 15px;
+			cursor: pointer;
+		}
+
+		input[type=button]:hover {
+			color: #fff;
+			background-color: black;
+		}
+
+		h2 {
+			color: #000;
+		}
+
+		::placeholder {
+			color: aliceblue;
+			opacity: 0.8;
+		}
+
+		#msg {
+			visibility: hidden;
+			min-width: 250px;
+			background-color: yellow;
+			color: #000;
+			text-align: center;
+			border-radius: 2px;
+			padding: 16px;
+			position: fixed;
+			z-index: 1;
+			right: 30%;
+			top: 30px;
+			font-size: 17px;
+			margin-right: 30px;
+		}
+
+		#msg.show {
+			visibility: visible;
+			-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+			animation: fadein 0.5s, fadeout 0.5s 2.5s;
+		}
+
+		@-webkit-keyframes fadein {
+			from {
+				top: 0;
+				opacity: 0;
+			}
+
+			to {
+				top: 30px;
+				opacity: 1;
+			}
+		}
+
+		@keyframes fadein {
+			from {
+				top: 0;
+				opacity: 1;
+			}
+
+			to {
+				top: 30px;
+				opacity: 1;
+			}
+		}
+
+		@-webkit-keyframes fadeout {
+			from {
+				top: 30px;
+				opacity: 1;
+			}
+
+			to {
+				top: 0;
+				opacity: 0;
+			}
+		}
+
+		@keyframes fadeout {
+			from {
+				top: 30px;
+				opacity: 1;
+			}
+
+			to {
+				top: 0;
+				opacity: 0;
+			}
+		}
+
+		#logo {
+			color: yellow;
+		}
+
+		a:hover {
+			color: skyblue;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="signup">
+		<form action="/signup" method="POST">
+			<h2 style="color: #fff">Sign Up <i class="fas fa-user-plus" id="logo"></i></h2>
+			<input type="text" name="fname" placeholder="First Name" required="required"><br><br>
+			<input type="text" name="lname" placeholder="Last Name" required="required"><br><br>
+			<input type="email" name="email" placeholder="Email" required="required"><br><br>
+			<input type="password" name="password" placeholder="Password" required="required"><br><br>
+			<input type="password" name="passwordTwo" placeholder="Confirm Password"><br><br>
+			<input type="submit" value="Sign up" style="border: 1px solid black;border-radius: 8px;color:white;background-color: rgb(0, 146, 7);cursor: pointer;"><br>
+			<!--<input type="submit" value="Sign up" onclick="myfunction()"><br>
+			<div id="msg">Congratulation you sign up Successfully!!!</div>
+			<script>
+				function myfunction() {
+					var x = document.getElementById("msg");
+					x.className = "show";
+					setTimeout
+						(
+							function () {
+								x.className = x.className.replace("show", "");
+							}, 3000
+						);
+				}
+		}
+			</script>-->
+			<br>Already have account?<a href="login" style="text-decoration:none;
+	font-family:'Play',sans-serif;color: yellow;">&nbsp;Log In</a>
+		</form>
+	</div>
+</body>
+
+</html>
