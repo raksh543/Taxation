@@ -1,3 +1,4 @@
+// git push heroku feature:master
 const express = require('express')
 const bodyParser = require('body-parser')
 const hbs = require('hbs')
@@ -49,6 +50,11 @@ app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
 // app.use(apiRoute)
+app.use((req, res, next) => {
+    res.locals.login = req.isAuthenticated();
+    res.locals.session = req.session;
+    next();
+})
 
 require('../config/passport')
 
@@ -58,6 +64,11 @@ app.get('/', (req,res,next)=>{
 
 // var csrfProtection = csrf();
 // app.use(csrfProtection)
+
+app.get('/logout', isLoggedIn, (req, res, next) => {
+    req.logout();
+    res.redirect('/')
+})
 
 app.get('/signup', (req,res,next)=>{
     var messages = req.flash('error')
@@ -100,3 +111,11 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
     console.log('Server is up on the port' + port)
 })
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/');
+
+}
