@@ -69,6 +69,7 @@
 	<div class="signin">
 		<form action="login" method="POST">
 			<center>
+				
 				<h2 style="color:white">Login</h2><br>
 				<button class="btn1"><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i>
 						Facebook</a></button>
@@ -76,6 +77,20 @@
 						href="https://accounts.google.com/ServiceLogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i
 							class="fa fa-google" id="google"></i> Google</a></button>
 				<br><br>
+				{{# if hasErrors}}
+          <div class="row">
+            {{# each messages }}
+            <center>
+              <p
+                style="color: maroon; border-color:maroon;border-radius:4px;width:100%;background-color:rgb(250, 161, 161);padding:10px">
+                {{this}} </p>
+            </center>
+            {{/each}}
+
+          </div>
+			<br><br>
+          {{/if}}
+		  
 				<i class="fas fa-user" id="logo"></i><input type="email" name="email" placeholder="Email"
 					required="required">
 				<br><br>

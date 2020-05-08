@@ -1,6 +1,7 @@
 var passport=require('passport');
 var mongoose=require('mongoose')
 var UserSchema=require('../public/models/userschema')
+var validator = require('express-validator')
 var LocalStrategy=require('passport-local').Strategy;
 
 var Member=mongoose.model("Member",UserSchema);
@@ -19,8 +20,8 @@ passport.use('local.signup', new LocalStrategy({
     passwordField:'password',
     passReqToCallback:true
 },function(req, email, password, done){
-    // req.checkBody('email','Invalid email').notEmpty().isEmail();
-    // req.checkBody('password','Invalid password').notEmpty().isLength({min:7});
+    req.checkBody('email','Invalid email').notEmpty().isEmail();
+    req.checkBody('password','Invalid password').notEmpty().isLength({min:7});
 
     // var errors = req.validateErrors();
     // if(errors){
@@ -65,8 +66,8 @@ passport.use('local.signin', new LocalStrategy({
     passReqToCallback:true
 
 },function(req,res, password, done){
-    // req.checkBody('email','Invalid email').notEmpty().isEmail();
-    // req.checkBody('password','Invalid password').notEmpty();
+    req.checkBody('email','Invalid email').notEmpty().isEmail();
+    req.checkBody('password','Invalid password').notEmpty();
     
     // var errors = req.getValidationResult()
     // if(errors){

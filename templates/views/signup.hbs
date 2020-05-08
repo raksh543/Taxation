@@ -157,6 +157,19 @@
 	<div class="signup">
 		<form action="/signup" method="POST">
 			<h2 style="color: #fff">Sign Up <i class="fas fa-user-plus" id="logo"></i></h2>
+			{{# if hasErrors}}
+        <div class="row">
+          {{# each messages }}
+          <center>
+            <p
+              style="color: maroon; border-color:maroon;border-radius:4px;width:100%;background-color:rgb(250, 161, 161);padding:10px">
+              {{this}} </p>
+          </center>
+          {{/each}}
+
+        </div>
+
+        {{/if}}
 			<input type="text" name="fname" placeholder="First Name" required="required"><br><br>
 			<input type="text" name="lname" placeholder="Last Name" required="required"><br><br>
 			<input type="email" name="email" placeholder="Email" required="required"><br><br>
