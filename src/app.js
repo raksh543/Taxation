@@ -100,6 +100,10 @@ app.post('/login', passport.authenticate('local.signin', {
         res.redirect('/')
 })
 
+app.get('/forgot',(req,res,next)=>{
+    res.render('forgot')
+})
+
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',

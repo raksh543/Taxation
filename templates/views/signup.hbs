@@ -3,28 +3,55 @@
 
 <head>
 	<title>Sign Up</title>
-	<!-- <link href="css/style2.css" rel="stylesheet" type="text/css"/> -->
+	<link href=" signup.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=play" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		@media (max-width: 992px) {
+			.alert-validate::before {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+
+		@media (max-width: 576px) {
+			.wrap-login100 {
+				padding-top: 20px
+			}
+		}
+
 		body {
+
 			font-family: Tahoma, Geneva, sans-serif;
 			color: #fff;
-			background: url(img/bg3.jpg);
+			height: 100%;
+			background: url('/img/bg3.jpg');
+			position: sticky;
 			background-size: cover;
+			min-height: 400px;
+
 		}
 
 		.signup {
 			background: rgba(0, 0, 0, 0.5);
 			padding: 40px;
-			width: 250px;
-			height: 430px;
-			margin-top: 90px;
-			margin-left: 180px;
-			margin: 0 auto;
+			width: 340px;
+			opacity: 2;
+			margin: auto;
+			margin-top: 60px;
+			height: 460px;
+			margin-left: auto;
+			position: sticky;
+			min-height: 40px;
 		}
 
 		form {
@@ -47,7 +74,7 @@
 			color: #fff;
 		}
 
-		input[type=button] {
+		input[type=submit] {
 			border: none;
 			width: 190px;
 			background: white;
@@ -59,7 +86,7 @@
 			cursor: pointer;
 		}
 
-		input[type=button]:hover {
+		input[type=submit]:hover {
 			color: #fff;
 			background-color: black;
 		}
@@ -158,25 +185,24 @@
 		<form action="/signup" method="POST">
 			<h2 style="color: #fff">Sign Up <i class="fas fa-user-plus" id="logo"></i></h2>
 			{{# if hasErrors}}
-        <div class="row">
-          {{# each messages }}
-          <center>
-            <p
-              style="color: maroon; border-color:maroon;border-radius:4px;width:100%;background-color:rgb(250, 161, 161);padding:10px">
-              {{this}} </p>
-          </center>
-          {{/each}}
+			<div class="row">
+				{{# each messages }}
+				<center>
+					<p
+						style="color: maroon; border-color:maroon;border-radius:4px;width:100%;background-color:rgb(250, 161, 161);padding:10px">
+						{{this}} </p>
+				</center>
+				{{/each}}
 
-        </div>
+			</div>
 
-        {{/if}}
+			{{/if}}
 			<input type="text" name="fname" placeholder="First Name" required="required"><br><br>
 			<input type="text" name="lname" placeholder="Last Name" required="required"><br><br>
 			<input type="email" name="email" placeholder="Email" required="required"><br><br>
 			<input type="password" name="password" placeholder="Password" required="required"><br><br>
 			<input type="password" name="passwordTwo" placeholder="Confirm Password"><br><br>
-			<input type="submit" value="Sign up" style="border: 1px solid black;border-radius: 8px;color:white;background-color: rgb(0, 146, 7);cursor: pointer;"><br>
-			<!--<input type="submit" value="Sign up" onclick="myfunction()"><br>
+			<input type="submit" value="Sign up" onclick="myfunction()"><br>
 			<div id="msg">Congratulation you sign up Successfully!!!</div>
 			<script>
 				function myfunction() {
@@ -190,7 +216,7 @@
 						);
 				}
 		}
-			</script>-->
+			</script>
 			<br>Already have account?<a href="login" style="text-decoration:none;
 	font-family:'Play',sans-serif;color: yellow;">&nbsp;Log In</a>
 		</form>
