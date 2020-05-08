@@ -12,9 +12,121 @@
 		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 	<title>Login</title>
-	<link href="css/login.css" rel="stylesheet" type="text/css" />
+	<!---<link href="login.css" rel="stylesheet" type="text/css"/>--->
 	<link href="https://fonts.googleapis.com/css?family=play" rel="stylesheet">
 	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		/*//////////////////////////////////////////////////////////////////
+[ Responsive ]*/
+
+		@media (max-width: 992px) {
+			.alert-validate::before {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+
+		@media (max-width: 576px) {
+			.wrap-login100 {
+				padding-top: 20px
+			}
+		}
+
+		body {
+			font-family: Tahoma, Geneva, sans-serif;
+			color: #fff;
+			height: 100%;
+			background: url('/img/bg3.jpg');
+			position: sticky;
+			background-size: cover;
+			min-height: 400px;
+		}
+
+		.signin {
+			background: rgba(0, 0, 0, 0.5);
+			padding: 40px;
+			width: 340px;
+			opacity: 2;
+			margin: auto;
+			margin-top: 60px;
+			height: 540px;
+			margin-left: auto;
+			position: sticky;
+			min-height: 40px;
+		}
+
+		form {
+			width: 240px;
+			text-align: center;
+		}
+
+		input {
+			width: 240px;
+			text-align: center;
+			background: transparent;
+			border: none;
+			border-bottom: 1px solid #fff;
+			font-family: 'Play', sans-serif;
+			font-size: 16px;
+			font-weight: 200px;
+			padding: 10px 0;
+			transition: border 0.5s;
+			outline: #fff;
+			color: #fff;
+			min-height: 40px;
+		}
+
+		input[type=checkbox] {
+			display: inline-block;
+			width: auto;
+		}
+
+		input[type=submit] {
+			border: none;
+			width: 190px;
+			background: white;
+			color: #000;
+			font-size: 16px;
+			line-height: 25px;
+			padding: 10px 0;
+			border-radius: 15px;
+			cursor: pointer;
+		}
+
+		input[type=submit]:hover {
+			color: #fff;
+			background-color: black;
+		}
+
+		h2 {
+			color: white;
+		}
+
+		a {
+			color: yellow;
+			text-decoration: blink;
+		}
+
+		a:hover {
+			color: skyblue;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+		}
+
+		::placeholder {
+			color: aliceblue;
+			opacity: 0.8;
+		}
+
 		.btn1 {
 			width: 100%;
 			padding: 12px;
@@ -69,7 +181,7 @@
 	<div class="signin">
 		<form action="login" method="POST">
 			<center>
-				
+
 				<h2 style="color:white">Login</h2><br>
 				<button class="btn1"><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i>
 						Facebook</a></button>
@@ -78,19 +190,19 @@
 							class="fa fa-google" id="google"></i> Google</a></button>
 				<br><br>
 				{{# if hasErrors}}
-          <div class="row">
-            {{# each messages }}
-            <center>
-              <p
-                style="color: maroon; border-color:maroon;border-radius:4px;width:100%;background-color:rgb(250, 161, 161);padding:10px">
-                {{this}} </p>
-            </center>
-            {{/each}}
+				<div class="row">
+					{{# each messages }}
+					<center>
+						<p
+							style="color: maroon; border-color:maroon;border-radius:4px;width:100%;background-color:rgb(250, 161, 161);padding:10px">
+							{{this}} </p>
+					</center>
+					{{/each}}
 
-          </div>
-			<br><br>
-          {{/if}}
-		  
+				</div>
+				<br><br>
+				{{/if}}
+
 				<i class="fas fa-user" id="logo"></i><input type="email" name="email" placeholder="Email"
 					required="required">
 				<br><br>
@@ -98,9 +210,8 @@
 					required="required">
 				<br><br>
 				<!--<input type="checkbox" name="remember me" checked="checked">&nbsp;Remember Me
-			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>---->
-				<input type="submit" value="Sign in"
-					style="border: 1px solid black;border-radius: 8px;color:white;background-color: rgb(0, 146, 7);cursor: pointer;"><br></a><br><br>
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>-->
+				<input type="submit" value="Sign in"><br></a><br>
 				<div id="container">
 					<!--<a href="#" style="margin-right: 0px; font-size: 13px; font-family: Tahoma,Geneva,sans-serif;">Reset Password</a>&nbsp;&nbsp;--->
 					<a href="forgot" style="margin-right: 0px; font-size: 13px; 
