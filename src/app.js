@@ -10,6 +10,7 @@ var validator = require('express-validator')
 var cookieParser = require('cookie-parser')
 var session = require('express-session')
 var passport = require('passport')
+var nodemailer = require('nodemailer')
 var flash = require('connect-flash')
 var MongoStore = require('connect-mongo')(session)
 
@@ -70,6 +71,28 @@ app.get('/logout', isLoggedIn, (req, res, next) => {
     res.redirect('/')
 })
 
+//--------------------------------------------------login with google-------------------------------------------
+
+// GET /auth/google
+//   Use passport.authenticate() as route middleware to authenticate the
+//   request.  The first step in Google authentication will involve redirecting
+//   the user to google.com.  After authorization, Google will redirect the user
+//   back to this application at /auth/google/callback
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }))
+
+// GET /auth/google/callback
+//   Use passport.authenticate() as route middleware to authenticate the
+//   request.  If authentication fails, the user will be redirected back to the
+//   login page.  Otherwise, the primary route function function will be called,
+//   which, in this example, will redirect the user to the home page.
+app.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/')
+  })
+//--------------------------------------------------login with google ends-------------------------------------------
+
 app.get('/signup', (req,res,next)=>{
     var messages = req.flash('error')
     res.render('signup', {
@@ -102,6 +125,57 @@ app.post('/login', passport.authenticate('local.signin', {
 
 app.get('/forgot',(req,res,next)=>{
     res.render('forgot')
+})
+
+app.get('/forgetPassOne',(req,res,next)=>{
+    res.render('forgetPassOne')
+})
+
+app.post('/sendOTP', (req,res,next)=>{
+    const email = req.body.email
+        const output = `
+        <h3> Dear user</h3>
+        <p>You have successfully logged in.</p>
+        <p> Jump in right now and explore the products and get amazing offers.</p>`;
+
+
+        // create reusable transporter object using the default SMTP transport
+        let transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false, // true for 465, false for other ports
+            auth: {
+                user: 'justfordemo999@gmail.com', // generated ethereal user
+                pass: 'justfordemo999@work' // generated ethereal password
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
+
+        // send mail with defined transport object
+        let mailOptions = {
+            from: '"Taxation 👻😀" <justfordemo999@gmail.com>', // sender address
+            to: email, // list of receivers
+            subject: "Hello ✔🤗", // Subject line
+            text: "Hello world?", // plain text body
+            html: output // html body
+        }
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return console.log(error)
+            }
+            console.log("Message sent: %s", info.messageId);
+            // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+            // Preview only available when sending through an Ethereal account
+            console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+            // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+        })
+        res.redirect('/profile');
+        // console.log(passport)
+    
 })
 
 app.get('*', (req, res) => {

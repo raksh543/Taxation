@@ -139,3 +139,69 @@ footer h3:after {
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
+/* FAQS */
+
+section .container{
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.accordion-item{
+  background-color: #283042;
+  border-radius: .4rem;
+  margin-bottom: 1rem;
+  padding: .5rem;
+  box-shadow: .5rem 2px .5rem rgba(0,0,0,.1);
+}
+
+a.accordion-link{
+  font-size: normal;
+  color: rgba(255,255,255,.8);
+  text-decoration: none;
+  background-color: #283042;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem .5rem;
+  
+}
+
+.accordion-link i{
+  color: #e7d5ff;
+}
+
+
+.answer{
+  position: relative;
+  background-color: #212838;
+  /* transition: max-height 650ms; */
+}
+
+.answer::before{
+  content: "";
+  position: absolute;
+  width: .6rem;
+  height: 100%;
+  background-color: #8fc460;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.answer p{
+  color: rgba(255,255,255,.6);
+  font-size: 16px;
+  font-weight: lighter;
+  padding: 10px;
+  text-align: left;
+  padding-left: 12px;
+}
+
+.accordion-item:target .answer{
+  max-height: 50px;
+}
+

@@ -12,10 +12,12 @@
   </head>
   <body class="d-flex flex-column h-100">
 
-{{>header}}
+    {{>header}}
 
 <!-- Begin page content -->
 <main role="main">
+
+
 
 	<div class="container-fluid padding">
       <div class="row welcome text-center">
@@ -240,10 +242,84 @@
 
 <br>
 <br>
+
+
+
+
+
+      
+
 <!--********************************************************************************-->
+<!-- Faqs -->
+<section>
+   <div class="container">
+      <h1 class="text-center text-primary mb-5">Frequently Asked Questions</h1>
+      <div class="accordion">
+         <div class="accordion-item" id="question1">
+            <a class="accordion-link" href="">
+               What is the website about?
+            </a>
+            <div class="answer">
+               <p>
+                  The site answers all the questions about an individual and their taxes. It has a tax calculator to calculate taxes for you.
+               </p>
+            </div>
+         </div>
+
+         <div class="accordion-item" id="question2">
+            <a class="accordion-link" href="">
+               How to calculate my tax?
+            </a>
+            <div class="answer">
+               <p>
+                  Insert all the details asked in the tax calculator. It considers all the information and gives the result. It's super easy and handy.
+               </p>
+            </div>
+         </div>
+
+         <div class="accordion-item" id="question3">
+            <a class="accordion-link" href="">
+               Getting Started on Taxation Iniesta.
+            </a>
+            <div class="answer">
+               <p>
+                  It's simple and user friendly. It guides you through with each step you take. Firstly, you can read about all the latest updates here and can do your individual work here.
+               </p>
+            </div>
+         </div>
+
+         <div class="accordion-item" id="question4">
+            <a class="accordion-link" href="">
+               Verifying your email.
+            </a>
+            <div class="answer">
+               <p>
+                  The sign-up page asks for your mail id, and connects the database with your id. It then redirects it to your Taxation account. If you face any troubles, you can contact us at the mail id or the phone number.
+               </p>
+            </div>
+         </div>
+
+         <div class="accordion-item" id="question5">
+            <a class="accordion-link" href="">
+               Can I pay my tax on this site?
+            </a>
+            <div class="answer">
+               <p>
+                  No. You can only calculate your tax on the website. 
+               </p>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
 </main>
 
+
+
+<!-- Footer Begins -->
 {{>footer}}
+
 
 <button class="open-button btn btn-primary rounded-circle" onclick="openForm()"><i class="far fa-comment-dots"></i></button>
 
@@ -258,8 +334,6 @@
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
-
-
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/chat.js"></script>

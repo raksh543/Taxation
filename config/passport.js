@@ -3,7 +3,34 @@ var mongoose=require('mongoose')
 var UserSchema=require('../public/models/userschema')
 var validator = require('express-validator')
 var LocalStrategy=require('passport-local').Strategy;
+var passport = require('passport')
+var nodemailer = require('nodemailer')
+var GooglePlusTokenStrategy= require ('passport-google-plus-token')
 
+//-------------------for login with google account------------
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
+// Use the GoogleStrategy within Passport.
+//   Strategies in passport require a `verify` function, which accept
+//   credentials (in this case, a token, tokenSecret, and Google profile), and
+//   invoke a callback with a user object.
+passport.use(new GoogleStrategy({
+    clientID: '895883019505-vn912g4nrg5jk07d3q9mfu2fu24t3ie6.apps.googleusercontent.com',
+    clientSecret: 'nsJgCl_vxttK5zPG2y7LM5Ni',
+    callbackURL: "http://www.example.com/auth/google/callback"
+  },
+  function(token, tokenSecret, profile, done) {
+      token= '1//04oJIPfiQmI9uCgYIARAAGAQSNwF-L9Ir7jWLhUtUjPZJJEh3G-Z2viQvPZg88CK4XIG3OB0sg6ASdPA0uyC517YSGQqUN_kYb94'
+      User.findOrCreate({ googleId: profile.id }, function (err, user) {
+          console.log(profile)
+        return done(err, user);
+      });
+  }
+));
+
+
+
+//----------------------For login using local strategy------------------
 var Member=mongoose.model("Member",UserSchema);
 passport.serializeUser(function(user,done){
     done(null,user.id)
