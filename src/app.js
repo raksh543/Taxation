@@ -10,14 +10,18 @@ var validator = require('express-validator')
 var cookieParser = require('cookie-parser')
 var session = require('express-session')
 var passport = require('passport')
-var nodemailer = require('nodemailer')
 var flash = require('connect-flash')
 var MongoStore = require('connect-mongo')(session)
+var renewRoute = require('../public/routes/renewPassword')
+
+
+FacebookStrategy = require('passport-facebook').Strategy;
 
 mongoose.connect("mongodb+srv://monchu:monchu@cluster0-dgfgi.mongodb.net/Taxation?retryWrites=true&w=majority", { useNewUrlParser: true });//creating or joining to practice database
 
 
 const UserSchema = require('../public/models/userschema')
+const FbUser = require('../public/models/FbUser');
 
 const app = express()
 
@@ -39,6 +43,9 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.use(validator())
 app.use(bodyParser.json())
 app.use(cookieParser())
+
+var Member = mongoose.model("Member", UserSchema);
+
 app.use(session(
     {
         secret: 'coz-i-cab-not-decide-a-super-long-password',
@@ -56,12 +63,58 @@ app.use((req, res, next) => {
     res.locals.session = req.session;
     next();
 })
+app.use(renewRoute)
 
 require('../config/passport')
 
-app.get('/', (req,res,next)=>{
+app.get('/', (req, res, next) => {
     res.render('index')
 })
+
+////////////////////////////////////////////
+//facebook auth
+app.get('/auth/facebook',
+    passport.authenticate('facebook'),
+    function (req, res) {
+        // The request will be redirected to Facebook for authentication, so this
+        // function will not be called.
+    });
+
+app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', { failureRedirect: '/login' }),
+    function (req, res) {
+        console.log
+
+        //store data to db
+        const User = new FbUser({
+            fbId: req.user.id,//You need to pass some value here from where fb id is coming   ok Yes 
+            name: req.user.displayName
+        });
+        User.save()
+            .then(user => {
+                res.redirect('/index');
+            })
+            .catch(err => console.log(err));
+        console.log(req.user);
+        res.redirect('/index');  //Here we have to mention dashboard after success full login but simply for the 
+    });
+
+app.get('/index', ensureAuthenticated, function (req, res) {
+    //console.log(req.user);
+    res.render('index', { user: req.user });
+});
+
+app.get('/logout', function (req, res) {
+    req.logout();
+    res.redirect('/');
+});
+
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) { return next(); }
+    res.redirect('/')
+}
+
+////////////////////////////////////////////
 
 // var csrfProtection = csrf();
 // app.use(csrfProtection)
@@ -73,27 +126,20 @@ app.get('/logout', isLoggedIn, (req, res, next) => {
 
 //--------------------------------------------------login with google-------------------------------------------
 
-// GET /auth/google
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request.  The first step in Google authentication will involve redirecting
-//   the user to google.com.  After authorization, Google will redirect the user
-//   back to this application at /auth/google/callback
 app.get('/auth/google',
-  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }))
+  passport.authenticate('google', { scope: 
+      [ 'https://www.googleapis.com/auth/plus.login',
+      , 'https://www.googleapis.com/auth/plus.profile.emails.read' ] }
+));
 
-// GET /auth/google/callback
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request.  If authentication fails, the user will be redirected back to the
-//   login page.  Otherwise, the primary route function function will be called,
-//   which, in this example, will redirect the user to the home page.
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/')
-  })
+app.get( '/auth/google/callback', 
+    passport.authenticate( 'google', { 
+        successRedirect: '/auth/google/success',
+        failureRedirect: '/auth/google/failure'
+}));
 //--------------------------------------------------login with google ends-------------------------------------------
 
-app.get('/signup', (req,res,next)=>{
+app.get('/signup', (req, res, next) => {
     var messages = req.flash('error')
     res.render('signup', {
         messages: messages,
@@ -105,10 +151,10 @@ app.post('/signup', passport.authenticate('local.signup', {
     failureRedirect: '/signup',
     failureFlash: true
 }), function (req, res, next) {
-        res.redirect('/');
+    res.redirect('/');
 })
 
-app.get('/login', (req,res,next)=>{
+app.get('/login', (req, res, next) => {
     var messages = req.flash('error')
     res.render('login', {
         messages: messages,
@@ -120,63 +166,50 @@ app.post('/login', passport.authenticate('local.signin', {
     failureRedirect: '/login',
     failureFlash: true
 }), function (req, res, next) {
-        res.redirect('/')
+    res.redirect('/')
+})
+// app.post('/googlesignin', passport.authenticate('signinbygoogle', {
+//     failureRedirect: '/login',
+//     failureFlash: true
+// }), function (req, res, next) {
+//     res.redirect('/')
+// })
+
+app.post('/googlesignin', (req, res, next) => {
+    console.log(req.body.Gid)
+    console.log(req.body.Gemail)
+    useremail = req.body.Gemail
+    Member.findOne({ 'email': useremail }, (err, user) => {
+        if (user) {
+            console.log("here")
+            console.log(req.isAuthenticated())
+            // req.isAuthenticated() == true
+            res.redirect('/login')
+        }
+        if (!user) {
+            console.log("nouser")
+            var newUser = new Member();
+            newUser.fname = req.body.Gfname;
+            newUser.lname = req.body.Glname;
+            newUser.email = req.body.Gemail;
+            newUser.password = newUser.encryptPassword(req.body.Gpass);
+            newUser.save()
+            res.redirect('/login')
+        }
+    })
+    console.log("ryasjh")
 })
 
-app.get('/forgot',(req,res,next)=>{
+// app.post('/googlesignin', (req,res,next)=>{
+//     console.log(req.body.Gid)
+//     console.log("ryasjh")
+// })
+
+app.get('/forgot', (req, res, next) => {
     res.render('forgot')
 })
 
-app.get('/forgetPassOne',(req,res,next)=>{
-    res.render('forgetPassOne')
-})
 
-app.post('/sendOTP', (req,res,next)=>{
-    const email = req.body.email
-        const output = `
-        <h3> Dear user</h3>
-        <p>You have successfully logged in.</p>
-        <p> Jump in right now and explore the products and get amazing offers.</p>`;
-
-
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 587,
-            secure: false, // true for 465, false for other ports
-            auth: {
-                user: 'justfordemo999@gmail.com', // generated ethereal user
-                pass: 'justfordemo999@work' // generated ethereal password
-            },
-            tls: {
-                rejectUnauthorized: false
-            }
-        });
-
-        // send mail with defined transport object
-        let mailOptions = {
-            from: '"Taxation 👻😀" <justfordemo999@gmail.com>', // sender address
-            to: email, // list of receivers
-            subject: "Hello ✔🤗", // Subject line
-            text: "Hello world?", // plain text body
-            html: output // html body
-        }
-
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                return console.log(error)
-            }
-            console.log("Message sent: %s", info.messageId);
-            // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-            // Preview only available when sending through an Ethereal account
-            console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-            // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-        })
-        res.redirect('/profile');
-        // console.log(passport)
-    
-})
 
 app.get('*', (req, res) => {
     res.render('404', {
