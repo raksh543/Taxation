@@ -5,6 +5,57 @@ html,body {
   width: 100%;
   font-family: 'Poppins',sans-serif;
 } */
+.wrapper-content {
+  text-align: center;
+  padding-top: 10%;
+  padding-bottom: 15%;
+  background: url(../img/bg.jpg) 100% fixed;
+  background-size: cover;
+  background-position: center;
+}
+.wrapper-content h1 {
+  color: green;
+  font-size: 40px;
+  -webkit-text-stroke: 1px #00ff66;
+  -moz-text-stroke: 1px #00ff66;
+}
+.wrapper-content p {
+  color: white;
+  font-size: 20px;
+}
+.call {
+  color: white;
+  font-size: 30px;
+  border-radius: 10px;
+  border: solid white;
+  background-color: green;
+  padding: 10px 5px;
+  width: 10%;
+}
+.call:hover {
+  background-color: red;
+}
+
+#loading{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #fff
+  url('https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif')
+   no-repeat center center; 
+  z-index: 99999;
+}
+
+marquee {
+  background-color: green;
+}
+marquee {
+  text-decoration: none;
+}
+#more {
+  text-align: center;
+}
+
 
 #upper1 {
 	border: 1px solid;
@@ -192,9 +243,9 @@ hr.hrr {
   cursor: pointer;
   width: 150px;
 }
-.button4 {border-radius: 12px;
-margin-left: 45%;
-margin-top: 5%;
+.button5 {
+  border-radius: 12px;
+  border-top: 15%;
 }
 
 #upperleft1 {
@@ -227,7 +278,7 @@ figure{
 	width: 100%;
 	background-size: cover;
 } */
-.button4:hover {
+.button5:hover {
 	background-color: red;
 	color: white;
 }
@@ -365,7 +416,7 @@ div.desc1 {
   color: white;
 }
 .thing {
-		background: linear-gradient(to right, rgba(255,0,0,0), #1A5204 ), url(../img/4.jpg);
+		background: linear-gradient(to top, rgba(139,0,0,0), green ), url(../img/4.jpg);
 		/* -webkit-background-size: cover; */
 		text-align: center;
 		height: 350px;
@@ -443,7 +494,16 @@ div.desc1 {
 }
 /***************************************************media query************************/
 @media (max-width: 772px){
-  #home{
+  
+
+
+  .call {
+    font-size: 20px;
+    width: 30%;
+
+
+    }  
+    #home{
     display: none;
   }
 
@@ -511,13 +571,6 @@ p {
 
 
 }
-.button4 {
-font-size: 30px;
-text-align: center;
-margin-top:35px;
-font-size: 15px;
- 
-}
 .thing {
   overflow: scroll;
 }
@@ -558,11 +611,12 @@ h1 {
 }
 /***************************************************************************************/
 @media (min-width: 773px) and (max-width: 1023px) {
-	div.gallery {
-	width: auto;
-	height: auto;
-	float: none;
-}
+
+  .call {
+    font-size: 20px;
+    width: 20%;
+  }
+
 table {
 	text-align: center;
 	width: 100%;
@@ -594,7 +648,7 @@ margin-left: 40%;
 	text-align: center;
 	align-items: center;
 	padding: 10%;
-	margin-left: 10%;
+	/* margin-left: 10%; */
 }
   .button3 {
     margin-left: 15%;

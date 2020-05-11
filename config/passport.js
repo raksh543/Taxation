@@ -23,8 +23,8 @@ var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 
 
 passport.use(new GoogleStrategy({
-    clientID: '895883019505-vn912g4nrg5jk07d3q9mfu2fu24t3ie6.apps.googleusercontent.com',
-    clientSecret: 'nsJgCl_vxttK5zPG2y7LM5Ni',
+    clientID: 'enter id here',
+    clientSecret: 'enter secter here',
     callbackURL: "http://localhost:3080/auth/google/callback"
   },
   function(request, accessToken, refreshToken, profile, done) {
@@ -157,8 +157,8 @@ passport.use('local.signin', new LocalStrategy({
 
 // Use the FacebookStrategy within Passport.
 passport.use(new FacebookStrategy({
-    clientID: "523967331607372",
-    clientSecret: " f2a7fc550bf17c1d7b87ff6451c9e96c",
+    clientID: "enter id here",
+    clientSecret: "enter secret here",
     callbackURL: "http://localhost:3080/auth/facebook/callback"
 },
     function (accessToken, refreshToken, profile, done) {
