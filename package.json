@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/iniesta-webtech-solution/Taxation#readme",
   "dependencies": {
+    "admin-bro": "^2.3.1",
+    "admin-bro-expressjs": "^2.0.5",
+    "admin-bro-mongoose": "^0.5.2",
     "bcrypt": "^4.0.1",
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
@@ -26,6 +29,7 @@
     "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
+    "express-formidable": "^1.2.0",
     "express-session": "^1.17.1",
     "express-validator": "^5.0.0",
     "flash": "^1.1.0",

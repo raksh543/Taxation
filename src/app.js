@@ -21,7 +21,9 @@ mongoose.connect("mongodb+srv://monchu:monchu@cluster0-dgfgi.mongodb.net/Taxatio
 
 
 const UserSchema = require('../public/models/userschema')
-const FbUser = require('../public/models/FbUser');
+const FbUser = require('../public/models/FbUser')
+
+const adminRouter = require('../public/routes/admin-router')
 
 const app = express()
 
@@ -36,7 +38,7 @@ app.set('view engine', 'hbs')
 app.set('views', viewPath)
 hbs.registerPartials(partialsPath)
 
-// app.use('/admin', adminRouter)
+app.use('/admin', adminRouter)
 app.use(express.static(publicDirectoryPath))
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
