@@ -134,9 +134,12 @@ passport.use('local.signin', new LocalStrategy({
     // var errors = req.getValidationResult()
     // if(errors){
     //     var messages = [];
-    //     errors.forEach(function(error){
-    //         messages.push(error.msg);    
-    //     })
+    //     // errors.forEach(function(error){
+    //     //     messages.push(error.msg);    
+    //     // })
+    //     for (var i=0; i<errors.length(); i++){
+    //         messages.push(error.msg);
+    //     }
     //     return done(null, false, req.flash('error',messages))
     // }
 

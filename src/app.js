@@ -101,20 +101,11 @@ app.get('/auth/facebook/callback',
         res.redirect('/index');  //Here we have to mention dashboard after success full login but simply for the 
     });
 
-app.get('/index', ensureAuthenticated, function (req, res) {
+app.get('/index', isLoggedIn, function (req, res) {
     //console.log(req.user);
     res.render('index', { user: req.user });
 });
 
-app.get('/logout', function (req, res) {
-    req.logout();
-    res.redirect('/');
-});
-
-function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) { return next(); }
-    res.redirect('/')
-}
 
 ////////////////////////////////////////////
 
