@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Taxation</title>
+    <link rel="stylesheet" href="/css/body.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="shortcut icon rounded-circle" href="/img/logo.jpg">
+   </head>
+  <body class="d-flex flex-column h-100" onload="myFunction()">
+<div id="loading"></div>
+
+{{>header}}
+
+<!-- Begin page content -->
+<main role="main">
+    <section>
+          <h1 class="text-center display-4 mb-5">About Us</h1>
+               <div class="jumbotron jumbotron-fluid">
+                   <div class="container">
+                        <h5 class="font-weight-normal text-justify">
+                        We are(Iniesta’s) one of the finest Tax firms in India compromising numerous accountants who work for you round the clock and help you with your financial queries and requirements.<br>
+                        We use best in class technologies to find the right solution for your queries and our accountants and staff are well experienced and equipped with skills to provide with best in class services regarding your businesses.<br>
+                        We are providing you all the legal services required by a business and we are willing to do the extra work for you so you could relax and be hassle free. We believe in customer service and customers come first to us.<br>
+                        We have an all-round experience in Commerce/Industry services and work in online and offline mode thus you can connect with us anytime. Let us take care of you and leave your worries to us. 
+                       </h5>
+                   </div>
+               </div>
+     </section>
+     <section>
+        <h1 class="text-center display-4 mb-5">Our Principles</h1>
+        <div class="jumbotron jumbotron-fluid bg-white">
+            <div class="container text-justify">
+                <p class="lead">To provide a reliable platform for taxation portal, our organization’s performance is solely based on our principles of:</p>
+                <ul>
+                    <li><h3> Business with Virtue </h3>
+                    <p>We ensure the approach and management of our business is done with Integrity</p>
+                    </li>
+                    <li><h3>Communication is the Key</h3>
+                    <p> We pay attention to the information needed by our clients and covey a piece of clearer and non-misleading information to them</p>
+                    </li>
+                    <li><h3>Customer’s Concern </h3>
+                        <p>We pay due regards to the interests of our customers and fairly help them accordingly
+                            </p>
+                        </li>
+                    <li><h3>Reduction of Odds</h3>
+                        <p> We guarantee that no emergence of conflict of interest is built into our online results or the information we provide </p>
+                     </li>
+                    <li><h3>Bridging Customer’s Relations Upright</h3>
+                        <p> We nourish our client’s interests and ensure them with our satisfactory means, and boosting their faith in relying upon us.</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+     </section>
+</main>
+
+<!-- Footer -->
+{{>footer}}
+
+<!-- Chat Box -->
+<button class="open-button btn btn-success rounded-circle" onclick="openForm()"><i class="far fa-comment-dots"></i></button>
+
+<div class="chat-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>Chat</h1>
+
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type message.." name="msg" required></textarea>
+
+    <button type="submit" class="btn">Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+
+
+
+
+
+<script src="/js/jquery-3.4.1.js"></script>
+<script src="/js/popper.js"></script>
+<script src="/js/chat.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/script.js"></script>
+</body>
+</html>

@@ -5,20 +5,19 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand ml-5" href="#">
-            <img src="https://lh3.googleusercontent.com/08icL7eX2fjXoP3_SsDEYGNpvMdjasMcBdE033glDXSnjTHRFEIRjm25Da68QQQjRb8"
-                width="30px" height="30px">
+        <a class="navbar-brand ml-5 text-success font-weight-normal font-italic" href="/index">
+            <img src="/img/logo.jpg" width="30px" height="30px">
             Taxation</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-auto align-items-center">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#aboutus">About Us</a>
+                    <a class="nav-link" href="/aboutus">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#blogs">Blogs </a>
+                    <a class="nav-link" href="/services">Services </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#gallery">Gallery </a>
@@ -43,71 +42,73 @@
 
         <div class="nav text-sm-center">
             {{# if login}}
-                <li class="nav-item">
-                    <a class="btn btn-primary" id="signupButton" href="/profile" style="border: 1px;float:right;margin-right:20px"><span><i
-                                class="fa fa-user-o" style="color: white;" aria-hidden="true"></i></span> User Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-primary" id="signupButton" href="/logout" style="border: 1px;float:right;margin-right:20px"><span><i
-                                class="fa fa-sign-out" style="color: white;" aria-hidden="true"></i></span> Logout</a></li>
+            <li class="nav-item">
+                <a class="btn btn-primary" id="signupButton" href="/profile"
+                    style="border: 1px;float:right;margin-right:20px"><span><i class="fa fa-user-o"
+                            style="color: white;" aria-hidden="true"></i></span> User Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-primary" id="signupButton" href="/logout"
+                    style="border: 1px;float:right;margin-right:20px"><span><i class="fa fa-sign-out"
+                            style="color: white;" aria-hidden="true"></i></span> Logout</a></li>
             {{else}}
-                <li class="nav-item">
-                    <a class="btn btn-outline-primary" href="/login">Login</a>
-                </li>
-                <li class="nav-item ml-1">
-                    <a class="btn btn-primary" href="/signup">Sign Up</a>
-                </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-success" href="/login">Login</a>
+            </li>
+            <li class="nav-item ml-1">
+                <a class="btn btn-success" href="/signup">Sign Up</a>
+            </li>
             {{/if}}
         </div>
     </nav>
 </header>
 
-<!--   
-    <header>
 
-  <nav class="navbar navbar-expand-lg fixed-top navbar-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand ml-5 text-success font-weight-normal font-italic" href="#">
-        <img src="https://lh3.googleusercontent.com/08icL7eX2fjXoP3_SsDEYGNpvMdjasMcBdE033glDXSnjTHRFEIRjm25Da68QQQjRb8" width="30px" height="30px">
-        Taxation</a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav m-auto align-items-center">
-        <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#aboutus">About Us</a>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link" href="#blogs">Blogs </a>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link" href="#gallery">Gallery </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#tax">Tax</a>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link" href="#loans">Loans </a>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link" href="#partner">Partner </a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="#contactus">Contact Us</a>
-        </li>
-    </ul>
-    </div>
-    <div class="nav text-sm-center">
-        <li class="nav-item">
-            <button class="btn btn-outline-success" onclick="location.href='login.html';">Login</button>
-        </li>
-        <li class="nav-item ml-1">
-            <button class="btn btn-success" onclick="location.href='signup.html';">Sign Up</button>
-        </li>
-    </div>
-</nav>
-</header>
--->
+{{!-- <header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand ml-5 text-success font-weight-normal font-italic" href="index.html">
+            <img src="img/logo.jpg" width="30px" height="30px">
+            Taxation</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto align-items-center">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutus.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallery">Gallery </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tax">Tax</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#loans">Loans </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#partner">Partner </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contactus">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav text-sm-center">
+            <li class="nav-item">
+                <button class="btn btn-outline-success" onclick="location.href='login.html';">Login</button>
+            </li>
+            <li class="nav-item ml-1">
+                <button class="btn btn-success" onclick="location.href='signup.html';">Sign Up</button>
+            </li>
+        </div>
+    </nav>
+</header> --}}

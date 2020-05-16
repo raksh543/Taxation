@@ -106,6 +106,18 @@ app.get('/index', isLoggedIn, function (req, res) {
     res.render('index', { user: req.user });
 });
 
+app.get('/aboutus', (req,res)=>{
+    res.render('aboutus')
+})
+
+app.get('/services', (req,res)=>{
+    res.render('services')
+})
+
+// app.get('/contactus', (req,res)=>{
+//     res.render('#footer')
+// })
+
 
 ////////////////////////////////////////////
 
@@ -190,7 +202,6 @@ app.post('/googlesignin', (req, res, next) => {
             res.redirect('/login')
         }
     })
-    console.log("ryasjh")
 })
 
 // app.post('/googlesignin', (req,res,next)=>{
